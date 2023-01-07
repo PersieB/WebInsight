@@ -90,7 +90,7 @@ newsdf = df.filter(['Title', 'date_pub', 'pub_id', 'media_id', 'author_id', 'Sum
 newsdf.to_sql('news', conn, if_exists='append', index = False)
 c.execute('''SELECT * FROM news''')
 news = c.fetchall()
-print(news[0])
+#print(news[0])
 
 
 

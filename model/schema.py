@@ -6,10 +6,8 @@ conn, c = db_connect.database_connection()
 
 c.executescript(
     """
-    CREATE TABLE app_users(
+    CREATE TABLE users(
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    fname VARCHAR(50),
-    lname VARCHAR(50),
     username VARCHAR(20),
     email VARCHAR(100),
     password VARCHAR(225)
