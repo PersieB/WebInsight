@@ -72,3 +72,6 @@ def get_user_id(username):
     cursor.close()
     connection.close()
     return userid[0]
+
+
+# need to fix table error
