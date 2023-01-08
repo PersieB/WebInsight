@@ -21,27 +21,8 @@
 {% endwith %}
 <div class="container-login100">
     <div class="wrap-login100">
-        <p class="welcome">CLICK ON LIST TO VIEW TASKS</p>
-        <table>
-            <button class="button"><a href="/todo">Add New</a></button>
-            <tr>
-              <th>{{ message }}'s Todo list</th>
-              <th>Date created</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-            {% for row in todos %}
-            <tr>
-              <td><a href="{{url_for('todo_tasks', todo_id=row.0)}}">{{ row.1}}</a></td>
-              <td>{{ row.2}}</td>
-              <td>{{ row.3}}</td>
-              <td>
-                <a href="{{url_for('update_todo', id=row.0)}}" class="btn btn-info btn-xs">Edit title</a>
-                  <a href="{{url_for('delete_todo', id=row.0)}}" class="btn btn-danger btn-xs" onclick="return confirm('Clicking ok deletes the title and all associated tasks')">Delete</a>
-              </td>
-            </tr>
-            {% endfor %}
-          </table>
+        <p class="welcome">TRENDING KEYWORDS IN THE NEWS</p>
+        
         
     </div>
 </div>
