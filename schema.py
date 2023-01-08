@@ -1,4 +1,4 @@
-import db_connect
+from model import db_connect
 
 conn, c = db_connect.database_connection()
 

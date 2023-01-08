@@ -3,7 +3,9 @@
 """
 The methods below perform data model operations on the users table
 """
+import db_connect
 
+connection, cursor = db_connect.database_connection()
 import sqlite3
 from passlib.hash import sha256_crypt  # library for hashing password
 
@@ -15,8 +17,7 @@ Otherwise, it inserts the new credentials and returns true indicating success
 """
 def signup(username, email, password):
     hashed_password = sha256_crypt.hash(password)
-    connection = sqlite3.connect('web_insights.db', check_same_thread=False)
-    cursor = connection.cursor()
+
     cursor.execute(
         """
         SELECT password FROM users WHERE username = '{username}';
@@ -39,8 +40,7 @@ def signup(username, email, password):
 
 # Returns the password of an already existing user, and false otherwise
 def check_pasword(username):
-    connection = sqlite3.connect('web_insights.db', check_same_thread=False)
-    cursor = connection.cursor()
+
     cursor.execute(
         """
         SELECT password FROM users WHERE username = '{username}';
@@ -59,8 +59,7 @@ def check_pasword(username):
     
  # Returns user id based on its username   
 def get_user_id(username):
-    connection = sqlite3.connect('web_insights.db', check_same_thread=False)
-    cursor = connection.cursor()
+
     cursor.execute(
         """
         SELECT user_id FROM users WHERE username = '{username}';
@@ -74,4 +73,4 @@ def get_user_id(username):
     return userid[0]
 
 
-# need to fix table error
+# need to fix table errorgi
