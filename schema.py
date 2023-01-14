@@ -56,7 +56,7 @@ c.executescript(
     sent_id INTEGER PRIMARY KEY AUTOINCREMENT,
     Positive DECIMAL(2,2),
     Neutral DECIMAL(2,2),
-    Negative DECIMAL(2,2)
+    Negative DECIMAL(2,2),
     );
 
     CREATE TABLE IF NOT EXISTS keywords(
