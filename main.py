@@ -8,6 +8,7 @@ This file contains all the necessary routes and controllers
 # Import relevant libraries 
 from flask import Flask, render_template, request, flash, session, redirect, url_for, g
 from model import users
+#from functions import cloudwords
 from passlib.hash import sha256_crypt
 import uuid
 
@@ -22,6 +23,8 @@ insights.secret_key = lowercase_str
 """
 All individual routes and pages that will exist are below:
 """
+
+#keyword_model.select_keywords()
 
 # Homepage
 @insights.route('/', methods = ['GET'])
