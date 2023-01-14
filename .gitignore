@@ -1,3 +1,4 @@
 
-*.xlsx
+
+.data/
 .vscode/
