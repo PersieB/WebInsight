@@ -16,4 +16,5 @@ def show_keywords(text):
     # No axis 
     plt.axis("off")
     plt.savefig("../static/images/wordcloud.jpg")
+    
 

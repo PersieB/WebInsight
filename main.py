@@ -7,8 +7,9 @@ This file contains all the necessary routes and controllers
 
 # Import relevant libraries 
 from flask import Flask, render_template, request, flash, session, redirect, url_for, g
-from model import users
-#from functions import cloudwords
+from model import users, keyword_model
+from functions import cloudwords
+
 from passlib.hash import sha256_crypt
 import uuid
 
@@ -36,10 +37,10 @@ def homepage():
     return render_template('index.html')
 
 # Dashboard
-@insights.route('/dashboard', methods = ['GET', 'POST'])
+@insights.route('/dashboard', methods = ['GET'])
 def dashboard():
-    userid = users.get_user_id(session['username'])
-    return render_template('dashboard.html',message=session['username'])
+    if 'username' in session:
+        return render_template('dashboard.html',message=session['username'])
 
 # Signing up
 @insights.route('/signup', methods = ['GET', 'POST'])
@@ -73,7 +74,7 @@ def login():
 
         if (sha256_crypt.verify(request.form['pass'], has_pass)):
             session['username'] = request.form['user']
-            flash("Login successful. Welcome!", "success")
+            flash("Welcome " + session['username'] + "!", "success")
             return redirect(url_for('dashboard'))
 
     return render_template('login.html')
@@ -86,4 +87,8 @@ def logout():
     return redirect(url_for('homepage'))
 
 if __name__ =='__main__':
+    
     insights.run(port=7000,debug=True)
+    keyword_model.select_keywords()
+    
+    # well done

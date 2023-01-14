@@ -3,7 +3,7 @@ The methods below perform data model operations on the keywords table
 """
 import sys
 
-sys.path.append( r'C:\Users\percy\Documents\Projects\GPS\WebInsight\functions' )
+sys.path.append( r'C:/Users/percy/Documents/Projects/GPS/WebInsight/functions' )
 import cloudwords
 import sqlite3
 import time
@@ -31,6 +31,7 @@ def select_keywords():
         keyword_list.append(i[0])
     str_keys = ""
     str_keys = str_keys.join(keyword_list)
+    return str_keys
     cloudwords.show_keywords(str_keys)
 
 
